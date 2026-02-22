@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Funcionalidades — Kulvio</title>
+  <meta name="description" content="Conoce los módulos de Kulvio: Registro de Actividades, Evaluación de Riesgo, Derechos ARCOP, Gestión de Brechas, Consentimientos, Documentación y más.">
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ======== NAVIGATION ======== -->
+  <nav class="nav" role="navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__brand" aria-label="Kulvio inicio">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="nav-shield" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1B3A5C"/><stop offset="100%" stop-color="#0EA5A0"/></linearGradient></defs>
+          <path d="M32 4L8 16v16c0 14.4 10.24 27.84 24 32 13.76-4.16 24-17.6 24-32V16L32 4z" fill="url(#nav-shield)"/>
+          <text x="32" y="44" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="28" font-weight="700" fill="white">K</text>
+        </svg>
+        Kulvio
+      </a>
+      <div class="nav__links">
+        <a href="index.html" class="nav__link">Inicio</a>
+        <a href="features.html" class="nav__link active">Funcionalidades</a>
+        <a href="contact.html" class="nav__link">Contacto</a>
+      </div>
+      <a href="contact.html" class="btn btn--primary btn--sm nav__cta">Solicitar Demo</a>
+      <button class="nav__toggle" aria-label="Menú" aria-expanded="false">
+        <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" aria-hidden="true">
+    <a href="index.html" class="mobile-menu__link">Inicio</a>
+    <a href="features.html" class="mobile-menu__link">Funcionalidades</a>
+    <a href="contact.html" class="mobile-menu__link">Contacto</a>
+    <a href="contact.html" class="btn btn--primary btn--lg btn--block mobile-menu__cta">Solicitar Demo</a>
+  </div>
+
+  <!-- ======== PAGE HERO ======== -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="section__label reveal">Plataforma integral</span>
+      <h1 class="page-hero__title reveal reveal-delay-1">Cada módulo que necesitas<br>para cumplir la normativa</h1>
+      <p class="page-hero__subtitle reveal reveal-delay-2">
+        Kulvio integra todos los procesos de la Ley de Protección de Datos en una
+        plataforma coherente, con flujos de trabajo conectados entre sí.
+      </p>
+    </div>
+  </section>
+
+  <!-- ======== MODULES DETAIL ======== -->
+  <section class="section">
+    <div class="container">
+      <div class="module-grid">
+
+        <!-- RAT -->
+        <div class="module-card reveal">
+          <div class="module-card__header">
+            <div class="module-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="module-card__title">Registro de Actividades de Tratamiento</h3>
+              <span class="module-card__tag">Artículo 8°</span>
+            </div>
+          </div>
+          <p class="module-card__text">
+            Catálogo completo de todas las actividades de tratamiento de datos personales
+            de tu organización, con un flujo de aprobación estructurado que garantiza la
+            revisión técnica y administrativa.
+          </p>
+          <div class="module-card__features">
+            <div class="module-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Flujo Operador → DPO → Admin con devolución a borrador
+            </div>
+            <div class="module-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Versionamiento completo de cada actividad y campo modificado
+            </div>
+            <div class="module-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Transferencias internacionales con evaluación de adecuación por país
+            </div>
+            <div class="module-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Validación cruzada con el diagnóstico inicial de cumplimiento
+            </div>
+          </div>
+        </div>
+
+        <!-- Riesgo -->
+        <div class="module-card reveal">
+          <div class="module-card__header">
+            <div class="module-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="module-card__title">Evaluación de Riesgo</h3>
+              <span class="module-card__tag">EIPD</span>
+            </div>
+          </div>
+          <p class="module-card__text">
+            Motor de reglas inteligente que clasifica automáticamente el nivel de riesgo
+            de cada actividad de tratamiento, identificando cuáles requieren una Evaluación
+            de Impacto en la Protección de Datos.
+          </p>
+          <div class="module-card__features">
+            <div class="module-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Reglas hard (obligatorias) y soft (ponderadas) configurables
+            </div>
+            <div class="module-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Clasificación automática: bajo, medio, alto, crítico
+            </div>
+            <div class="module-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Override justificado por DPO con registro en auditoría
+            </div>
+            <div class="module-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Sub-wizard EIPD con medidas de seguridad y evidencias
+            </div>
+          </div>
+        </div>
+
+        <!-- ARCOP -->
+        <div class="module-card reveal">
+          <div class="module-card__header">
+            <div class="module-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="module-card__title">Derechos ARCOP</h3>
+              <span class="module-card__tag">Artículos 5° - 11°</span>
+            </div>
+          </div>
+          <p class="module-card__text">
+            Gestión integral de los derechos de acceso, rectificación, cancelación,
+            oposición y portabilidad. Incluye un portal público para que los titulares
+            ejerzan sus derechos de forma autónoma.
+          </p>
+          <div class="module-card__features">
+            <div class="module-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Portal público con formulario de solicitud y seguimiento
+            </div>
+            <div class="module-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Plazos SLA automáticos con escalamiento progresivo
+            </div>
+            <div class="module-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              5 tipos: Acceso, Rectificación, Supresión, Oposición, Portabilidad
+            </div>
+            <div class="module-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Denegación presunta automática al vencer el plazo
+            </div>
+          </div>
+        </div>
+
+        <!-- Brechas -->
+        <div class="module-card reveal">
+          <div class="module-card__header">
+            <div class="module-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="module-card__title">Gestión de Brechas de Seguridad</h3>
+              <span class="module-card__tag">Artículo 14 quinquies</span>
+            </div>
+          </div>
+          <p class="module-card__text">
+            Registro y gestión de incidentes de seguridad que afecten datos personales,
+            con control de plazos legales para notificación a la autoridad y a los
+            titulares afectados.
+          </p>
+          <div class="module-card__features">
+            <div class="module-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Plazos legales de notificación con alertas automáticas
+            </div>
+            <div class="module-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Vinculación con actividades de tratamiento afectadas
+            </div>
+            <div class="module-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Clasificación por tipo y severidad del incidente
+            </div>
+            <div class="module-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Registro de medidas correctivas y lecciones aprendidas
+            </div>
+          </div>
+        </div>
+
+        <!-- Consentimientos -->
+        <div class="module-card reveal">
+          <div class="module-card__header">
+            <div class="module-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="module-card__title">Gestión de Consentimientos</h3>
+              <span class="module-card__tag">Artículo 12°</span>
+            </div>
+          </div>
+          <p class="module-card__text">
+            Registro inmutable de consentimientos otorgados y revocados, con un widget
+            JavaScript embebible que puedes instalar en tu sitio web para capturar
+            consentimientos en tiempo real.
+          </p>
+          <div class="module-card__features">
+            <div class="module-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Widget JS embebible con CORS permisivo para cualquier dominio
+            </div>
+            <div class="module-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Registro inmutable — no se puede alterar retroactivamente
+            </div>
+            <div class="module-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Revocación y suppression list automática
+            </div>
+            <div class="module-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Granularidad por finalidad y base legal
+            </div>
+          </div>
+        </div>
+
+        <!-- Documentación -->
+        <div class="module-card reveal">
+          <div class="module-card__header">
+            <div class="module-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="module-card__title">Documentación y Wiki</h3>
+              <span class="module-card__tag">ISO 27701</span>
+            </div>
+          </div>
+          <p class="module-card__text">
+            Repositorio documental centralizado tipo wiki con 58 plantillas ISO predefinidas,
+            editor visual, ciclo de vida completo y revisiones periódicas automatizadas.
+          </p>
+          <div class="module-card__features">
+            <div class="module-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              58 plantillas ISO listas para usar con sustitución de variables
+            </div>
+            <div class="module-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Editor WYSIWYG con wiki links bidireccionales
+            </div>
+            <div class="module-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Ciclo: Borrador → Revisión → Aprobado → Publicado → Archivado
+            </div>
+            <div class="module-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Exportación PDF, lectura obligatoria y revisiones periódicas
+            </div>
+          </div>
+        </div>
+
+        <!-- Auditoría -->
+        <div class="module-card reveal">
+          <div class="module-card__header">
+            <div class="module-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L3 7v5c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/><path d="M9 12l2 2 4-4"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="module-card__title">Auditoría Inmutable</h3>
+              <span class="module-card__tag">Accountability</span>
+            </div>
+          </div>
+          <p class="module-card__text">
+            Log de auditoría con cadena SHA-256 tipo blockchain que garantiza la integridad
+            de cada registro. Cumple con el principio de accountability exigido por la ley.
+          </p>
+          <div class="module-card__features">
+            <div class="module-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Cadena SHA-256 — cualquier alteración es detectable
+            </div>
+            <div class="module-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Exportación en PDF, JSON y CSV con checksum de verificación
+            </div>
+            <div class="module-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Retención legal (legal hold) para investigaciones
+            </div>
+            <div class="module-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Trazabilidad completa de cada acción por usuario y tenant
+            </div>
+          </div>
+        </div>
+
+        <!-- Canal de Denuncias -->
+        <div class="module-card reveal">
+          <div class="module-card__header">
+            <div class="module-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="module-card__title">Canal de Denuncias</h3>
+              <span class="module-card__tag">Whistleblowing</span>
+            </div>
+          </div>
+          <p class="module-card__text">
+            Canal para reportes anónimos o nominados sobre infracciones a la normativa
+            de datos personales, con portal público de seguimiento y gestión interna
+            de investigaciones.
+          </p>
+          <div class="module-card__features">
+            <div class="module-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Reportes anónimos o nominados con token de seguimiento
+            </div>
+            <div class="module-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Portal público para consultar estado del reporte
+            </div>
+            <div class="module-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Gestión interna de investigaciones con asignación
+            </div>
+            <div class="module-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Protección de identidad del denunciante
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== SECURITY SECTION ======== -->
+  <section class="section section--gray">
+    <div class="container">
+      <div style="text-align:center; max-width:640px; margin:0 auto;">
+        <span class="section__label reveal">Seguridad y Arquitectura</span>
+        <h2 class="section__heading reveal reveal-delay-1" style="margin-left:auto;margin-right:auto;">Construido con seguridad<br>desde el primer día</h2>
+        <p class="section__subheading reveal reveal-delay-2" style="margin-left:auto;margin-right:auto;">
+          Kulvio implementa las mejores prácticas de seguridad en cada capa de la plataforma.
+        </p>
+      </div>
+
+      <div class="value-grid" style="margin-top:16px;">
+        <div class="value-card reveal reveal-delay-1">
+          <div class="value-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+          </div>
+          <h3 class="value-card__title">Multi-tenant Aislado</h3>
+          <p class="value-card__text">
+            Cada organización opera en completo aislamiento. Los datos nunca se mezclan
+            entre tenants gracias al filtrado automático en cada consulta.
+          </p>
+        </div>
+        <div class="value-card reveal reveal-delay-2">
+          <div class="value-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3 class="value-card__title">Auth Passwordless</h3>
+          <p class="value-card__text">
+            Sin contraseñas que robar. Autenticación via OTP y Magic Link con
+            rate limiting y JWT seguro.
+          </p>
+        </div>
+        <div class="value-card reveal reveal-delay-3">
+          <div class="value-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/>
+            </svg>
+          </div>
+          <h3 class="value-card__title">RBAC Granular</h3>
+          <p class="value-card__text">
+            4 roles (Admin, DPO, Operador, Auditor) con permisos específicos que
+            controlan cada acción dentro de la plataforma.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== CTA BANNER ======== -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2 class="cta-banner__heading reveal">¿Listo para simplificar tu cumplimiento?</h2>
+      <p class="cta-banner__text reveal reveal-delay-1">Agenda una demostración personalizada y conoce cada módulo en acción.</p>
+      <a href="contact.html" class="btn btn--primary btn--lg reveal reveal-delay-2">
+        Solicitar Demo
+        <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ======== FOOTER ======== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="index.html" class="footer__brand" aria-label="Kulvio">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="ft-shield" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1B3A5C"/><stop offset="100%" stop-color="#0EA5A0"/></linearGradient></defs>
+          <path d="M32 4L8 16v16c0 14.4 10.24 27.84 24 32 13.76-4.16 24-17.6 24-32V16L32 4z" fill="url(#ft-shield)"/>
+          <text x="32" y="44" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="28" font-weight="700" fill="white">K</text>
+        </svg>
+        Kulvio
+      </a>
+      <div class="footer__links">
+        <a href="index.html" class="footer__link">Inicio</a>
+        <a href="features.html" class="footer__link">Funcionalidades</a>
+        <a href="contact.html" class="footer__link">Contacto</a>
+      </div>
+      <p class="footer__copy">&copy; 2026 Kulvio. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

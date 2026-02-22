@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kulvio — Cumplimiento de Protección de Datos Personales</title>
+  <meta name="description" content="Plataforma SaaS para el cumplimiento de la Ley de Protección de Datos Personales de Chile. Gestión integral: RAT, ARCOP, brechas, consentimientos y más.">
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ======== NAVIGATION ======== -->
+  <nav class="nav" role="navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__brand" aria-label="Kulvio inicio">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="nav-shield" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1B3A5C"/><stop offset="100%" stop-color="#0EA5A0"/></linearGradient></defs>
+          <path d="M32 4L8 16v16c0 14.4 10.24 27.84 24 32 13.76-4.16 24-17.6 24-32V16L32 4z" fill="url(#nav-shield)"/>
+          <text x="32" y="44" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="28" font-weight="700" fill="white">K</text>
+        </svg>
+        Kulvio
+      </a>
+
+      <div class="nav__links">
+        <a href="index.html" class="nav__link active">Inicio</a>
+        <a href="features.html" class="nav__link">Funcionalidades</a>
+        <a href="contact.html" class="nav__link">Contacto</a>
+      </div>
+
+      <a href="contact.html" class="btn btn--primary btn--sm nav__cta">Solicitar Demo</a>
+
+      <button class="nav__toggle" aria-label="Menú" aria-expanded="false">
+        <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" aria-hidden="true">
+    <a href="index.html" class="mobile-menu__link">Inicio</a>
+    <a href="features.html" class="mobile-menu__link">Funcionalidades</a>
+    <a href="contact.html" class="mobile-menu__link">Contacto</a>
+    <a href="contact.html" class="btn btn--primary btn--lg btn--block mobile-menu__cta">Solicitar Demo</a>
+  </div>
+
+  <!-- ======== HERO ======== -->
+  <section class="hero">
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <div class="hero__badge reveal">
+          <span class="hero__badge-dot"></span>
+          Ley 21.719 — Chile
+        </div>
+        <h1 class="hero__title reveal reveal-delay-1">
+          Cumplimiento de la Ley de Protección de Datos, <span class="hero__title-accent">simplificado.</span>
+        </h1>
+        <p class="hero__subtitle reveal reveal-delay-2">
+          La plataforma que ayuda a las organizaciones chilenas a cumplir con la nueva
+          normativa de protección de datos personales. Todo lo que necesitas en un solo lugar.
+        </p>
+        <div class="hero__actions reveal reveal-delay-3">
+          <a href="contact.html" class="btn btn--primary btn--lg">
+            Solicitar Demo
+            <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </a>
+          <a href="features.html" class="btn btn--outline-white btn--lg">Ver Funcionalidades</a>
+        </div>
+      </div>
+
+      <div class="hero__visual" aria-hidden="true">
+        <div class="hero__shield">
+          <div class="hero__shield-ring"></div>
+          <div class="hero__shield-shape"></div>
+          <!-- Floating stat cards -->
+          <div class="hero__float-card">
+            <span class="hero__float-card-label">Actividades RAT</span>
+            <span class="hero__float-card-value">100%</span>
+          </div>
+          <div class="hero__float-card">
+            <span class="hero__float-card-label">Riesgo</span>
+            <span class="hero__float-card-value">Bajo</span>
+          </div>
+          <div class="hero__float-card">
+            <span class="hero__float-card-label">Cumplimiento</span>
+            <span class="hero__float-card-value">Activo</span>
+          </div>
+          <!-- Shield center icon -->
+          <svg class="hero__shield-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 2L3 7v5c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/>
+            <path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== VALUE PROPS ======== -->
+  <section class="section" id="value">
+    <div class="container">
+      <span class="section__label reveal">¿Por qué Kulvio?</span>
+      <h2 class="section__heading reveal reveal-delay-1">Diseñado para el cumplimiento<br>normativo chileno</h2>
+      <p class="section__subheading reveal reveal-delay-2">
+        No es una herramienta genérica adaptada. Kulvio fue construido desde cero
+        para la Ley 19.628 modificada por la Ley 21.719.
+      </p>
+
+      <div class="value-grid">
+        <!-- Card 1 -->
+        <div class="value-card reveal reveal-delay-1">
+          <div class="value-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+            </svg>
+          </div>
+          <h3 class="value-card__title">Todo en Un Solo Lugar</h3>
+          <p class="value-card__text">
+            Centraliza registro de actividades, evaluación de riesgos, derechos ARCOP,
+            brechas, consentimientos y documentación en una sola plataforma.
+          </p>
+        </div>
+        <!-- Card 2 -->
+        <div class="value-card reveal reveal-delay-2">
+          <div class="value-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+          </div>
+          <h3 class="value-card__title">Automatización Inteligente</h3>
+          <p class="value-card__text">
+            Notificaciones automáticas, evaluación de riesgo con motor de reglas,
+            plazos legales controlados y alertas antes de cada vencimiento.
+          </p>
+        </div>
+        <!-- Card 3 -->
+        <div class="value-card reveal reveal-delay-3">
+          <div class="value-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L3 7v5c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/>
+              <path d="M9 12l2 2 4-4"/>
+            </svg>
+          </div>
+          <h3 class="value-card__title">Cumplimiento Demostrable</h3>
+          <p class="value-card__text">
+            Audit trail inmutable con cadena SHA-256, reportes exportables en PDF/CSV/JSON,
+            y trazabilidad completa de cada acción.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== FEATURES PREVIEW ======== -->
+  <section class="section section--navy" id="features">
+    <div class="container">
+      <span class="section__label reveal">Módulos</span>
+      <h2 class="section__heading reveal reveal-delay-1">Todo lo que necesitas<br>para cumplir la ley</h2>
+      <p class="section__subheading reveal reveal-delay-2">
+        Seis módulos integrados que cubren cada aspecto del cumplimiento normativo.
+      </p>
+
+      <div class="features-grid">
+        <!-- RAT -->
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+          </div>
+          <h3 class="feature-card__title">Registro de Actividades</h3>
+          <p class="feature-card__text">Catálogo completo de actividades de tratamiento con flujo de aprobación Operador → DPO → Admin.</p>
+        </div>
+        <!-- Riesgo -->
+        <div class="feature-card reveal reveal-delay-2">
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+          </div>
+          <h3 class="feature-card__title">Evaluación de Riesgo</h3>
+          <p class="feature-card__text">Motor de reglas hard y soft con clasificación automática y overrides justificados por el DPO.</p>
+        </div>
+        <!-- ARCOP -->
+        <div class="feature-card reveal reveal-delay-3">
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3 class="feature-card__title">Derechos ARCOP</h3>
+          <p class="feature-card__text">Portal público para titulares, gestión de solicitudes con plazos SLA y escalamiento automático.</p>
+        </div>
+        <!-- Brechas -->
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+          </div>
+          <h3 class="feature-card__title">Gestión de Brechas</h3>
+          <p class="feature-card__text">Incidentes de seguridad con plazos legales de notificación y vinculación a actividades afectadas.</p>
+        </div>
+        <!-- Consentimientos -->
+        <div class="feature-card reveal reveal-delay-2">
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+          </div>
+          <h3 class="feature-card__title">Consentimientos</h3>
+          <p class="feature-card__text">Registro inmutable, widget embebible para tu sitio web, revocación y suppression list automática.</p>
+        </div>
+        <!-- Documentación -->
+        <div class="feature-card reveal reveal-delay-3">
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+            </svg>
+          </div>
+          <h3 class="feature-card__title">Documentación</h3>
+          <p class="feature-card__text">Wiki interna con 58 plantillas ISO, editor visual, revisiones periódicas y exportación PDF.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== CTA BANNER ======== -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2 class="cta-banner__heading reveal">Comienza tu camino hacia el cumplimiento</h2>
+      <p class="cta-banner__text reveal reveal-delay-1">Solicita una demostración y conoce cómo Kulvio puede ayudar a tu organización.</p>
+      <a href="contact.html" class="btn btn--primary btn--lg reveal reveal-delay-2">
+        Solicitar Demo
+        <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ======== FOOTER ======== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="index.html" class="footer__brand" aria-label="Kulvio">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="ft-shield" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1B3A5C"/><stop offset="100%" stop-color="#0EA5A0"/></linearGradient></defs>
+          <path d="M32 4L8 16v16c0 14.4 10.24 27.84 24 32 13.76-4.16 24-17.6 24-32V16L32 4z" fill="url(#ft-shield)"/>
+          <text x="32" y="44" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="28" font-weight="700" fill="white">K</text>
+        </svg>
+        Kulvio
+      </a>
+      <div class="footer__links">
+        <a href="index.html" class="footer__link">Inicio</a>
+        <a href="features.html" class="footer__link">Funcionalidades</a>
+        <a href="contact.html" class="footer__link">Contacto</a>
+      </div>
+      <p class="footer__copy">&copy; 2026 Kulvio. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

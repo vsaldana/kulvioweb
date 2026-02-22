@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto — Kulvio</title>
+  <meta name="description" content="Solicita una demostración de Kulvio o contáctanos para resolver tus dudas sobre cumplimiento de protección de datos personales.">
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ======== NAVIGATION ======== -->
+  <nav class="nav" role="navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__brand" aria-label="Kulvio inicio">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="nav-shield" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1B3A5C"/><stop offset="100%" stop-color="#0EA5A0"/></linearGradient></defs>
+          <path d="M32 4L8 16v16c0 14.4 10.24 27.84 24 32 13.76-4.16 24-17.6 24-32V16L32 4z" fill="url(#nav-shield)"/>
+          <text x="32" y="44" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="28" font-weight="700" fill="white">K</text>
+        </svg>
+        Kulvio
+      </a>
+      <div class="nav__links">
+        <a href="index.html" class="nav__link">Inicio</a>
+        <a href="features.html" class="nav__link">Funcionalidades</a>
+        <a href="contact.html" class="nav__link active">Contacto</a>
+      </div>
+      <a href="contact.html" class="btn btn--primary btn--sm nav__cta">Solicitar Demo</a>
+      <button class="nav__toggle" aria-label="Menú" aria-expanded="false">
+        <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" aria-hidden="true">
+    <a href="index.html" class="mobile-menu__link">Inicio</a>
+    <a href="features.html" class="mobile-menu__link">Funcionalidades</a>
+    <a href="contact.html" class="mobile-menu__link">Contacto</a>
+    <a href="contact.html" class="btn btn--primary btn--lg btn--block mobile-menu__cta">Solicitar Demo</a>
+  </div>
+
+  <!-- ======== PAGE HERO ======== -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="section__label reveal">Conversemos</span>
+      <h1 class="page-hero__title reveal reveal-delay-1">Solicita una demostración<br>personalizada</h1>
+      <p class="page-hero__subtitle reveal reveal-delay-2">
+        Cuéntanos sobre tu organización y te mostraremos cómo Kulvio puede
+        ayudarte a cumplir con la normativa de protección de datos.
+      </p>
+    </div>
+  </section>
+
+  <!-- ======== CONTACT SECTION ======== -->
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Left: Info -->
+        <div class="contact-info reveal">
+          <div>
+            <h2 class="contact-info__heading">¿Cómo podemos ayudarte?</h2>
+            <p class="contact-info__text">
+              Ya sea que estés comenzando tu proceso de adecuación o necesites
+              una plataforma para gestionar tu cumplimiento continuo, estamos
+              aquí para ayudarte.
+            </p>
+          </div>
+
+          <div class="contact-info__item">
+            <div class="contact-info__item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <div>
+              <p class="contact-info__item-label">Email</p>
+              <p class="contact-info__item-value">contacto@kulvio.com</p>
+            </div>
+          </div>
+
+          <div class="contact-info__item">
+            <div class="contact-info__item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <div>
+              <p class="contact-info__item-label">Ubicación</p>
+              <p class="contact-info__item-value">Santiago, Chile</p>
+            </div>
+          </div>
+
+          <div class="contact-info__item">
+            <div class="contact-info__item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <div>
+              <p class="contact-info__item-label">Respuesta</p>
+              <p class="contact-info__item-value">Dentro de 24 horas hábiles</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Form -->
+        <div class="contact-form reveal reveal-delay-2">
+          <form id="contact-form">
+            <div class="form-group">
+              <label for="name">Nombre completo</label>
+              <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Correo electrónico</label>
+              <input type="email" id="email" name="email" placeholder="tu@empresa.cl" required>
+            </div>
+            <div class="form-group">
+              <label for="company">Empresa</label>
+              <input type="text" id="company" name="company" placeholder="Nombre de tu organización">
+            </div>
+            <div class="form-group">
+              <label for="interest">¿Qué te interesa?</label>
+              <select id="interest" name="interest">
+                <option value="">Selecciona una opción</option>
+                <option value="demo">Solicitar una demostración</option>
+                <option value="pricing">Información de precios</option>
+                <option value="technical">Consulta técnica</option>
+                <option value="other">Otro</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Mensaje</label>
+              <textarea id="message" name="message" placeholder="Cuéntanos sobre tu organización y qué necesitas..." rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary btn--lg btn--block">
+              Enviar Mensaje
+              <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+            </button>
+          </form>
+
+          <div class="form-success">
+            <div class="form-success__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <h3 class="form-success__title">Mensaje enviado</h3>
+            <p class="form-success__text">Gracias por tu interés. Te contactaremos dentro de las próximas 24 horas hábiles.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== FOOTER ======== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="index.html" class="footer__brand" aria-label="Kulvio">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="ft-shield" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1B3A5C"/><stop offset="100%" stop-color="#0EA5A0"/></linearGradient></defs>
+          <path d="M32 4L8 16v16c0 14.4 10.24 27.84 24 32 13.76-4.16 24-17.6 24-32V16L32 4z" fill="url(#ft-shield)"/>
+          <text x="32" y="44" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="28" font-weight="700" fill="white">K</text>
+        </svg>
+        Kulvio
+      </a>
+      <div class="footer__links">
+        <a href="index.html" class="footer__link">Inicio</a>
+        <a href="features.html" class="footer__link">Funcionalidades</a>
+        <a href="contact.html" class="footer__link">Contacto</a>
+      </div>
+      <p class="footer__copy">&copy; 2026 Kulvio. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

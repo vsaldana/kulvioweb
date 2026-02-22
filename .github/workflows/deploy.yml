@@ -1,0 +1,21 @@
+name: Deploy to Production
+on:
+  push:
+    branches: [main]
+jobs:
+  deploy:
+    runs-on: [self-hosted, servervs]
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Sync code to app directory
+        shell: cmd
+        run: |
+          if not exist "C:\SERVERVS\apps\kulvioweb" mkdir "C:\SERVERVS\apps\kulvioweb"
+          robocopy "%CD%" "C:\SERVERVS\apps\kulvioweb" /E /XD .git /NFL /NDL /NJH /NJS /R:1
+          if %errorlevel% leq 7 exit /b 0
+          exit /b %errorlevel%
+      - name: Deploy
+        shell: cmd
+        run: |
+          "C:\Program Files\Git\bin\bash.exe" --login -c "bash /c/SERVERVS/scripts/deploy.sh kulvioweb"
