@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#1B3A5C">
   <title>Seguridad y Trust Center — Kulvio</title>
-  <meta name="description" content="Trust Center de Kulvio. Arquitectura de seguridad, cifrado, multi-tenant, SSO, RBAC, backups, DR y cumplimiento normativo para protección de datos.">
+  <meta name="description" content="Trust Center de Kulvio. Arquitectura de seguridad, cifrado, aislamiento por organización, SSO, RBAC, backups, DR y cumplimiento normativo para protección de datos.">
   <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
   <link rel="stylesheet" href="css/styles.css?v=3">
 </head>
@@ -77,15 +77,15 @@
           <h3 class="security-card__title">Cifrado en tránsito y reposo</h3>
           <p class="security-card__text">TLS 1.3 para todas las comunicaciones. Datos en reposo cifrados con AES-256. Claves gestionadas con rotación periódica.</p>
         </div>
-        <!-- Multi-tenant -->
+        <!-- Aislamiento -->
         <div class="security-card reveal reveal-delay-2">
           <div class="security-card__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
             </svg>
           </div>
-          <h3 class="security-card__title">Aislamiento multi-tenant</h3>
-          <p class="security-card__text">Cada organización opera en aislamiento lógico completo. Filtrado automático por tenant en cada consulta a base de datos.</p>
+          <h3 class="security-card__title">Aislamiento por organización</h3>
+          <p class="security-card__text">Cada organización opera en aislamiento lógico completo con filtrado automático por cliente. Plan Enterprise: tenant individual con infraestructura dedicada.</p>
         </div>
         <!-- SSO -->
         <div class="security-card reveal reveal-delay-3">
