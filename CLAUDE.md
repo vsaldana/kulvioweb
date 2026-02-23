@@ -4,25 +4,37 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What is kulvioweb
 
-Marketing website for Kulvio, a compliance SaaS platform for Chile's data protection law (Ley 21.719). Static HTML/CSS/JS site served by nginx:alpine on port 8000. No build tools, no package manager, no database. Language: Spanish (es-CL).
+Marketing website for Kulvio, a compliance SaaS platform for Chile's data protection law (Ley 21.719), operated by Solutoria SpA. Static HTML/CSS/JS site served by nginx:alpine on port 8000. No build tools, no package manager, no database. Language: Spanish (es-CL).
 
 ## Architecture
 
 Pure static site — no framework, no bundler, no transpilation.
 
 ```
-public/                 # nginx document root
-├── index.html          # Landing page (hero, value props, features preview, testimonial, CTA)
-├── features.html       # Detailed module cards (RAT, Riesgo, ARCOP, Brechas, etc.)
-├── contact.html        # Contact form (client-side only, no backend yet)
-├── css/styles.css      # Single stylesheet — all styles, all pages
-├── js/main.js          # Single script — reveal animations, mobile menu, counters, form
-└── img/favicon.svg     # SVG shield favicon
-Dockerfile              # nginx:alpine, copies nginx.conf + public/
-nginx.conf              # Listens on 8000, clean URLs, gzip, caching rules
+public/                     # nginx document root
+├── index.html              # Landing (hero, urgency, modules, trust, plans, CTA)
+├── features.html           # Module cards (core + additional)
+├── precios.html            # Pricing plans (Starter, Growth, Enterprise) + FAQ accordion
+├── seguridad.html          # Trust center (security architecture, compliance, resources)
+├── integraciones.html      # Integration cards (SSO, API, webhooks, exports)
+├── chile-2026.html         # Regulatory resources (fines, timeline, obligations)
+├── contact.html            # Contact form + company info
+├── legal/
+│   ├── privacy.html        # Privacy policy
+│   ├── terms.html          # Terms of service
+│   └── ley-21719.html      # Ley 21.719 summary
+├── css/styles.css          # Single stylesheet — all styles, all pages
+├── js/main.js              # Single script — reveals, menu, counters, FAQ accordion, form
+└── img/favicon.svg         # SVG shield favicon
+Dockerfile                  # nginx:alpine, copies nginx.conf + public/
+nginx.conf                  # Listens on 8000, clean URLs, gzip, caching rules
 ```
 
-Nav, mobile menu, and footer are duplicated in each HTML file (no templating). When modifying shared elements, update all three pages.
+Nav, mobile menu, and footer are duplicated in each HTML file (no templating). When modifying shared elements, update **all 10 pages**.
+
+**Navigation (all pages):** Inicio | Producto | Precios | Seguridad | Chile 2026 | Contacto + "Solicitar Demo" CTA
+
+**Footer (all pages):** 4 columns (Producto, Recursos, Legal), Solutoria SpA branding, LinkedIn to `/company/solutoria`
 
 ## Deployment
 
@@ -62,17 +74,20 @@ All JS in `public/js/main.js` — single IIFE, no dependencies.
 - **Counter animation:** Elements with `data-count="N"` attribute animate from 0 to N on viewport entry.
 - **Nav scroll:** Adds `.scrolled` class to `.nav` when page scrolls past 20px.
 - **Mobile menu:** Toggle button opens `.mobile-menu` overlay with `.open` class.
+- **FAQ accordion:** `.faq-question` buttons toggle `.open` class on parent `.faq-item`. Only one item open at a time.
 - **Noise overlay:** Programmatic SVG noise texture appended to body.
 - **Contact form:** Currently client-side only — `submit` hides form, shows `.form-success` element.
 
 ## Static asset versioning
 
-CSS and JS are loaded with `?v=2` query params for cache busting. Bump the version number when making changes:
+CSS and JS are loaded with `?v=3` query params for cache busting. Bump the version number when making changes:
 ```html
-<link rel="stylesheet" href="css/styles.css?v=2">
-<script src="js/main.js?v=2"></script>
+<link rel="stylesheet" href="/css/styles.css?v=3">
+<script src="/js/main.js?v=3"></script>
 ```
+
+Pages in subdirectories (e.g., `legal/`) must use absolute paths (`/css/styles.css`, `/js/main.js`).
 
 ## nginx routing
 
-Clean URLs via `try_files $uri $uri.html $uri/ =404` — `/features` serves `features.html`. Static assets cached 7 days; HTML pages are no-cache. 404s fall back to `index.html`.
+Clean URLs via `try_files $uri $uri.html $uri/ =404` — `/features` serves `features.html`, `/legal/privacy` serves `legal/privacy.html`. Static assets cached 7 days; HTML pages are no-cache. 404s fall back to `index.html`.

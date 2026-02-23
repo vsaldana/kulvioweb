@@ -71,7 +71,7 @@
             const target = parseInt(el.getAttribute('data-count'), 10);
             let current = 0;
             const duration = 1200;
-            const step = Math.ceil(target / (duration / 16));
+            const step = Math.max(1, Math.ceil(target / (duration / 16)));
             const tick = () => {
               current = Math.min(current + step, target);
               el.textContent = current;
@@ -86,6 +86,27 @@
     );
     counters.forEach((el) => counterObserver.observe(el));
   }
+
+  // --- FAQ accordion ---
+  const faqQuestions = document.querySelectorAll('.faq-question');
+  faqQuestions.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const isOpen = item.classList.contains('open');
+
+      // Close all siblings
+      item.parentElement.querySelectorAll('.faq-item.open').forEach((openItem) => {
+        openItem.classList.remove('open');
+        openItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
+
+      // Toggle clicked item
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
 
   // --- Noise texture overlay ---
   var noiseOverlay = document.createElement('div');
