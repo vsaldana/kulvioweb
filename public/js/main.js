@@ -60,22 +60,23 @@
     });
   });
 
-  // --- Counter animation ---
+  // --- Counter animation (eased) ---
   const counters = document.querySelectorAll('[data-count]');
   if (counters.length) {
+    const easeOutQuart = function (t) { return 1 - Math.pow(1 - t, 4); };
     const counterObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const el = entry.target;
             const target = parseInt(el.getAttribute('data-count'), 10);
-            let current = 0;
-            const duration = 1200;
-            const step = Math.max(1, Math.ceil(target / (duration / 16)));
-            const tick = () => {
-              current = Math.min(current + step, target);
-              el.textContent = current;
-              if (current < target) requestAnimationFrame(tick);
+            const duration = 1600;
+            var start = null;
+            var tick = function (ts) {
+              if (!start) start = ts;
+              var progress = Math.min((ts - start) / duration, 1);
+              el.textContent = Math.round(easeOutQuart(progress) * target);
+              if (progress < 1) requestAnimationFrame(tick);
             };
             requestAnimationFrame(tick);
             counterObserver.unobserve(el);

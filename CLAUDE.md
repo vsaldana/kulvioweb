@@ -54,7 +54,7 @@ No tests or linting to run. Changes are verified visually at `https://kulvioweb.
 
 **Color palette** (CSS custom properties in `:root`):
 - Navy: `--navy: #1B3A5C`, `--navy-deep: #0F2440` (hero/footer backgrounds)
-- Teal: `--teal: #0EA5A0` (primary accent, buttons, icons)
+- Blue: `--teal: #0077EE` (primary accent, buttons, icons — matches Kulvio app branding)
 - Amber: `--amber: #D4A853` (secondary accent, some tags)
 - Body text: `--body: #4A5568`, `--ink: #1A202C`
 
@@ -81,10 +81,10 @@ All JS in `public/js/main.js` — single IIFE, no dependencies.
 
 ## Static asset versioning
 
-CSS and JS are loaded with `?v=4` query params for cache busting. Bump the version number when making changes:
+CSS and JS are loaded with `?v=5` query params for cache busting. Bump the version number when making changes:
 ```html
-<link rel="stylesheet" href="/css/styles.css?v=4">
-<script src="/js/main.js?v=4"></script>
+<link rel="stylesheet" href="/css/styles.css?v=5">
+<script src="/js/main.js?v=5"></script>
 ```
 
 Pages in subdirectories (e.g., `legal/`) must use absolute paths (`/css/styles.css`, `/js/main.js`).
