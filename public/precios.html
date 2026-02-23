@@ -7,7 +7,7 @@
   <title>Precios — Kulvio</title>
   <meta name="description" content="Planes y precios de Kulvio. Starter, Growth y Enterprise para el cumplimiento de la Ley de Protección de Datos Personales de Chile.">
   <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
-  <link rel="stylesheet" href="css/styles.css?v=3">
+  <link rel="stylesheet" href="css/styles.css?v=4">
 </head>
 <body>
 
@@ -262,6 +262,50 @@
 
       </div>
 
+      <!-- Pricing Calculator -->
+      <div class="pricing-calc reveal" id="pricing-calc">
+        <div class="pricing-calc__header">
+          <h2 class="pricing-calc__title">Calcula tu precio por usuarios</h2>
+          <p class="pricing-calc__subtitle">Escala tu plan sin penalidad. El valor mensual crece de forma progresiva y con descuentos por volumen.</p>
+        </div>
+
+        <div class="pricing-calc__body">
+          <div class="pricing-calc__control">
+            <label class="pricing-calc__label" for="user-count">Cantidad de usuarios</label>
+            <div class="pricing-calc__input-row">
+              <button class="pricing-calc__btn" id="calc-minus" aria-label="Menos usuarios">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </button>
+              <input type="number" id="user-count" class="pricing-calc__number" value="3" min="1" max="300">
+              <button class="pricing-calc__btn" id="calc-plus" aria-label="Más usuarios">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </button>
+            </div>
+            <input type="range" id="user-slider" class="pricing-calc__slider" min="1" max="300" value="3">
+            <div class="pricing-calc__slider-labels">
+              <span>1</span>
+              <span>50</span>
+              <span>100</span>
+              <span>200</span>
+              <span>300</span>
+            </div>
+          </div>
+
+          <div class="pricing-calc__result">
+            <div class="pricing-calc__plan-badge" id="calc-plan-name">Starter</div>
+            <div class="pricing-calc__price">
+              <span class="pricing-calc__price-value" id="calc-price">5</span>
+              <span class="pricing-calc__price-unit">UF/mes</span>
+            </div>
+            <p class="pricing-calc__per-user" id="calc-per-user">1,67 UF por usuario</p>
+            <p class="pricing-calc__enterprise-note" id="calc-enterprise-note" hidden>
+              Valor referencial. El plan Enterprise se cotiza según usuarios y requerimientos (SSO, SLA, multi-filial, API, tenant dedicado).
+            </p>
+            <a href="/contact" class="btn btn--primary btn--lg btn--block pricing-calc__cta" id="calc-cta">Solicitar Demo</a>
+          </div>
+        </div>
+      </div>
+
       <!-- Add-ons -->
       <div class="section-header--center">
         <span class="section__label reveal">Servicios Adicionales</span>
@@ -434,6 +478,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=3"></script>
+  <script src="js/main.js?v=4"></script>
 </body>
 </html>
