@@ -60,6 +60,33 @@
     });
   });
 
+  // --- Counter animation ---
+  const counters = document.querySelectorAll('[data-count]');
+  if (counters.length) {
+    const counterObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const target = parseInt(el.getAttribute('data-count'), 10);
+            let current = 0;
+            const duration = 1200;
+            const step = Math.ceil(target / (duration / 16));
+            const tick = () => {
+              current = Math.min(current + step, target);
+              el.textContent = current;
+              if (current < target) requestAnimationFrame(tick);
+            };
+            requestAnimationFrame(tick);
+            counterObserver.unobserve(el);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+    counters.forEach((el) => counterObserver.observe(el));
+  }
+
   // --- Contact form ---
   const form = document.getElementById('contact-form');
   if (form) {
