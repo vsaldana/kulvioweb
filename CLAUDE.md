@@ -74,19 +74,18 @@ All JS in `public/js/main.js` — single IIFE, no dependencies.
 
 - **Scroll reveal:** IntersectionObserver adds `.visible` class to `.reveal` elements. Variants: `.reveal--slide-left`, `.reveal--slide-right`, `.reveal--scale`, `.reveal--blur`. Delays: `.reveal-delay-1` through `.reveal-delay-5`.
 - **Counter animation:** Elements with `data-count="N"` attribute animate from 0 to N on viewport entry.
-- **Nav scroll:** Adds `.scrolled` class to `.nav` when page scrolls past 20px.
+- **Nav scroll:** IntersectionObserver on a 20px sentinel element toggles `.scrolled` class on `.nav` (no scroll listener).
 - **Mobile menu:** Toggle button opens `.mobile-menu` overlay with `.open` class.
 - **FAQ accordion:** `.faq-question` buttons toggle `.open` class on parent `.faq-item`. Only one item open at a time.
 - **Pricing calculator:** Slider + numeric input on `/precios`. Configurable `PRICING_TIERS` array drives volume-based UF pricing. `calculatePriceByUsers(n)` returns `{totalUF, planName, pricePerUserUF, isEnterpriseEstimate}`.
-- **Noise overlay:** Programmatic SVG noise texture appended to body.
 - **Contact form:** Currently client-side only — `submit` hides form, shows `.form-success` element.
 
 ## Static asset versioning
 
-CSS and JS are loaded with `?v=5` query params for cache busting. Bump the version number when making changes:
+CSS and JS are loaded with `?v=6` query params for cache busting. Bump the version number when making changes:
 ```html
-<link rel="stylesheet" href="/css/styles.css?v=5">
-<script src="/js/main.js?v=5"></script>
+<link rel="stylesheet" href="/css/styles.css?v=6">
+<script src="/js/main.js?v=6"></script>
 ```
 
 Pages in subdirectories (e.g., `legal/`) must use absolute paths (`/css/styles.css`, `/js/main.js`).

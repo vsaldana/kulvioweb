@@ -2,7 +2,7 @@
    KULVIO — Institutional Precision
    ============================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+/* Google Fonts loaded via <link> in HTML for parallel discovery (no @import chain) */
 
 /* --- Tokens --- */
 :root {
@@ -291,8 +291,8 @@ ul, ol { list-style: none; }
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   color: var(--navy);
 }
 
@@ -1845,7 +1845,7 @@ ul, ol { list-style: none; }
 /* Pricing Calculator */
 .pricing-calc {
   margin-top: 80px;
-  padding: 48px;
+  padding: 28px 20px;
   background: var(--surface);
   border: 1px solid var(--surface-border);
   border-radius: var(--radius-lg, 16px);
@@ -1874,14 +1874,14 @@ ul, ol { list-style: none; }
 
 .pricing-calc__body {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
+  grid-template-columns: 1fr;
+  gap: 32px;
   align-items: center;
 }
 
-@media (max-width: 768px) {
-  .pricing-calc { padding: 28px 20px; }
-  .pricing-calc__body { grid-template-columns: 1fr; gap: 32px; }
+@media (min-width: 769px) {
+  .pricing-calc { padding: 48px; }
+  .pricing-calc__body { grid-template-columns: 1fr 1fr; gap: 48px; }
 }
 
 .pricing-calc__label {
@@ -2299,7 +2299,7 @@ ul, ol { list-style: none; }
   gap: 6px;
   padding: 4px 12px;
   border-radius: 100px;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -2381,7 +2381,7 @@ ul, ol { list-style: none; }
 }
 
 .timeline__date {
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -2497,7 +2497,7 @@ ul, ol { list-style: none; }
 }
 
 .fine-card__level {
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
