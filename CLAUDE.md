@@ -46,7 +46,9 @@ bash /c/SERVERVS/scripts/deploy.sh kulvioweb
 git push origin main
 ```
 
-No tests or linting to run. Changes are verified visually at `https://kulvioweb.conversus.digital` or `http://vsserver:8000`.
+No tests or linting to run. Changes are verified visually at `https://kulvio.cl` or `http://vsserver:8000` (Tailscale).
+
+**Domains:** `kulvio.cl` and `www.kulvio.cl` only — no `conversus.digital` subdomain.
 
 ## Design System
 
