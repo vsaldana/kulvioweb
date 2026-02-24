@@ -1,0 +1,10 @@
+# Kulvio — kulvio.cl
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://kulvio.cl/sitemap.xml
+
+# Block common crawlers from non-content paths
+User-agent: *
+Disallow: /img/

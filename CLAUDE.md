@@ -82,14 +82,18 @@ All JS in `public/js/main.js` — single IIFE, no dependencies.
 
 ## Static asset versioning
 
-CSS and JS are loaded with `?v=6` query params for cache busting. Bump the version number when making changes:
+CSS and JS are loaded with `?v=7` query params for cache busting. Bump the version number when making changes:
 ```html
-<link rel="stylesheet" href="/css/styles.css?v=6">
-<script src="/js/main.js?v=6"></script>
+<link rel="stylesheet" href="/css/styles.css?v=7">
+<script src="/js/main.js?v=7"></script>
 ```
 
 Pages in subdirectories (e.g., `legal/`) must use absolute paths (`/css/styles.css`, `/js/main.js`).
 
+## SEO
+
+All pages include: canonical URLs, Open Graph tags, Twitter Card tags, and JSON-LD structured data (Schema.org). The homepage has Organization, WebSite, SoftwareApplication, and WebPage schemas. Inner pages have WebPage + BreadcrumbList. The pricing page also has FAQPage schema. `robots.txt` and `sitemap.xml` are in `public/`. A proper `404.html` with `noindex` returns HTTP 404 status.
+
 ## nginx routing
 
-Clean URLs via `try_files $uri $uri.html $uri/ =404` — `/features` serves `features.html`, `/legal/privacy` serves `legal/privacy.html`. Static assets cached 7 days; HTML pages are no-cache. 404s fall back to `index.html`.
+Clean URLs via `try_files $uri $uri.html $uri/ =404` — `/features` serves `features.html`, `/legal/privacy` serves `legal/privacy.html`. Static assets cached 7 days; HTML pages are no-cache. Custom `404.html` page with proper HTTP 404 status code.
