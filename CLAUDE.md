@@ -87,10 +87,10 @@ All JS in `public/js/main.js` — single IIFE, no dependencies.
 
 ## Static asset versioning
 
-CSS and JS are loaded with `?v=7` query params for cache busting. Bump the version number when making changes:
+CSS and JS are loaded with `?v=8` query params for cache busting. Bump the version number when making changes:
 ```html
-<link rel="stylesheet" href="/css/styles.css?v=7">
-<script src="/js/main.js?v=7"></script>
+<link rel="stylesheet" href="/css/styles.css?v=8">
+<script src="/js/main.js?v=8"></script>
 ```
 
 Pages in subdirectories (e.g., `legal/`) must use absolute paths (`/css/styles.css`, `/js/main.js`).
