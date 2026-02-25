@@ -123,9 +123,9 @@
   var calcEl = document.getElementById('pricing-calc');
   if (calcEl) {
     var PRICING_TIERS = [
-      { rangeMin: 1,   rangeMax: 3,   includedUsers: 3,  basePriceUF: 5,    extraUserPriceUF: 0,    planName: 'Starter' },
-      { rangeMin: 4,   rangeMax: 10,  includedUsers: 3,  basePriceUF: 5,    extraUserPriceUF: 1.0,  planName: 'Growth' },
-      { rangeMin: 11,  rangeMax: 25,  includedUsers: 10, basePriceUF: 12,   extraUserPriceUF: 0.8,  planName: 'Scale' },
+      { rangeMin: 1,   rangeMax: 3,   includedUsers: 3,  basePriceUF: 8,    extraUserPriceUF: 0,    planName: 'Starter' },
+      { rangeMin: 4,   rangeMax: 10,  includedUsers: 3,  basePriceUF: 8,    extraUserPriceUF: 1.0,  planName: 'Growth' },
+      { rangeMin: 11,  rangeMax: 25,  includedUsers: 10, basePriceUF: 20,   extraUserPriceUF: 0.8,  planName: 'Scale' },
       { rangeMin: 26,  rangeMax: 50,  includedUsers: 25, basePriceUF: 24,   extraUserPriceUF: 0.6,  planName: 'Business' },
       { rangeMin: 51,  rangeMax: 100, includedUsers: 50, basePriceUF: 39,   extraUserPriceUF: 0.45, planName: 'Business+' },
       { rangeMin: 101, rangeMax: 300, includedUsers: 100, basePriceUF: 61.5, extraUserPriceUF: 0.3,  planName: 'Enterprise' }
