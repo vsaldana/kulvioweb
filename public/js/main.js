@@ -5,6 +5,13 @@
 (function () {
   'use strict';
 
+  // --- Active nav link based on current path ---
+  var path = location.pathname.replace(/\/$/, '') || '/';
+  document.querySelectorAll('.nav__link, .mobile-menu__link').forEach(function (a) {
+    var href = a.getAttribute('href');
+    if (href === path || (href !== '/' && path.startsWith(href))) a.classList.add('active');
+  });
+
   // --- Scroll reveal ---
   const revealElements = document.querySelectorAll('.reveal');
   const revealObserver = new IntersectionObserver(

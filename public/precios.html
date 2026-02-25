@@ -90,41 +90,9 @@
 <body>
 
   <!-- ======== NAVIGATION ======== -->
-  <nav class="nav" role="navigation">
-    <div class="nav__inner">
-      <a href="/" class="nav__brand" aria-label="Kulvio inicio">
-        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-          <defs><linearGradient id="nav-shield" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0077EE"/><stop offset="100%" stop-color="#0055AA"/></linearGradient></defs>
-          <path d="M16 1 L29 6 V15 C29 22.5 23.5 28.5 16 31 C8.5 28.5 3 22.5 3 15 V6 Z" fill="url(#nav-shield)"/>
-          <text x="16" y="21.5" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="18" fill="#FFFFFF">K</text>
-        </svg>
-        Kulvio
-      </a>
-      <div class="nav__links">
-        <a href="/" class="nav__link">Inicio</a>
-        <a href="/features" class="nav__link">Producto</a>
-        <a href="/precios" class="nav__link active">Precios</a>
-        <a href="/seguridad" class="nav__link">Seguridad</a>
-        <a href="/chile-2026" class="nav__link">Chile 2026</a>
-        <a href="https://www.solutoria.cl/_contacto.php" target="_blank" rel="noopener noreferrer" class="nav__link">Contacto</a>
-      </div>
-      <a href="https://www.solutoria.cl/_contacto.php" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm nav__cta">Solicitar Demo</a>
-      <button class="nav__toggle" aria-label="Menú" aria-expanded="false">
-        <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
-    </div>
-  </nav>
+  <!--#include virtual="/includes/nav.html" -->
 
-  <div class="mobile-menu" aria-hidden="true">
-    <a href="/" class="mobile-menu__link">Inicio</a>
-    <a href="/features" class="mobile-menu__link">Producto</a>
-    <a href="/precios" class="mobile-menu__link">Precios</a>
-    <a href="/seguridad" class="mobile-menu__link">Seguridad</a>
-    <a href="/chile-2026" class="mobile-menu__link">Chile 2026</a>
-    <a href="https://www.solutoria.cl/_contacto.php" target="_blank" rel="noopener noreferrer" class="mobile-menu__link">Contacto</a>
-
-    <a href="https://www.solutoria.cl/_contacto.php" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg btn--block mobile-menu__cta">Solicitar Demo</a>
-  </div>
+  <!--#include virtual="/includes/mobile-menu.html" -->
 
   <main>
   <!-- ======== PAGE HERO ======== -->
@@ -506,51 +474,7 @@
   </main>
 
   <!-- ======== FOOTER ======== -->
-  <footer class="footer-expanded">
-    <div class="container">
-      <div class="footer-expanded__grid">
-        <div>
-          <a href="/" class="footer-expanded__brand" aria-label="Kulvio">
-            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-              <defs><linearGradient id="ft-shield" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0077EE"/><stop offset="100%" stop-color="#0055AA"/></linearGradient></defs>
-              <path d="M16 1 L29 6 V15 C29 22.5 23.5 28.5 16 31 C8.5 28.5 3 22.5 3 15 V6 Z" fill="url(#ft-shield)"/>
-              <text x="16" y="21.5" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="18" fill="#FFFFFF">K</text>
-            </svg>
-            Kulvio
-          </a>
-          <p class="footer-expanded__tagline">Plataforma SaaS para el cumplimiento de la Ley de Protección de Datos Personales de Chile.</p>
-          <p class="footer-expanded__company">Una solución de <a href="https://www.solutoria.cl" target="_blank" rel="noopener noreferrer">Solutoria SpA</a></p>
-        </div>
-        <div>
-          <h4 class="footer-expanded__col-title">Producto</h4>
-          <a href="/features" class="footer-expanded__link">Funcionalidades</a>
-          <a href="/integraciones" class="footer-expanded__link">Integraciones</a>
-          <a href="/precios" class="footer-expanded__link">Precios</a>
-          <a href="/seguridad" class="footer-expanded__link">Seguridad</a>
-          <a href="https://app.kulvio.cl" target="_blank" rel="noopener noreferrer" class="footer-expanded__link">Iniciar sesión</a>
-        </div>
-        <div>
-          <h4 class="footer-expanded__col-title">Recursos</h4>
-          <a href="/chile-2026" class="footer-expanded__link">Chile 2026</a>
-          <a href="/legal/ley-21719" class="footer-expanded__link">Ley 21.719</a>
-          <a href="https://www.solutoria.cl/_contacto.php" target="_blank" rel="noopener noreferrer" class="footer-expanded__link">Solicitar Demo</a>
-        </div>
-        <div>
-          <h4 class="footer-expanded__col-title">Legal</h4>
-          <a href="/legal/privacy" class="footer-expanded__link">Política de Privacidad</a>
-          <a href="/legal/terms" class="footer-expanded__link">Términos de Servicio</a>
-        </div>
-      </div>
-      <div class="footer-expanded__bottom">
-        <p class="footer-expanded__copy">&copy; 2026 Kulvio — Solutoria SpA. Todos los derechos reservados.</p>
-        <div class="footer-expanded__social">
-          <a href="https://www.linkedin.com/company/solutoria" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <!--#include virtual="/includes/footer.html" -->
 
   <script src="js/main.js?v=7"></script>
 </body>

@@ -23,14 +23,18 @@ public/                     # nginx document root
 │   ├── privacy.html        # Privacy policy
 │   ├── terms.html          # Terms of service
 │   └── ley-21719.html      # Ley 21.719 summary
+├── includes/               # SSI partials (included by nginx at serve time)
+│   ├── nav.html            # Shared navigation bar
+│   ├── mobile-menu.html    # Shared mobile menu overlay
+│   └── footer.html         # Shared footer
 ├── css/styles.css          # Single stylesheet — all styles, all pages
 ├── js/main.js              # Single script — reveals, menu, counters, FAQ accordion, form
 └── img/favicon.svg         # SVG shield favicon
 Dockerfile                  # nginx:alpine, copies nginx.conf + public/
-nginx.conf                  # Listens on 8000, clean URLs, gzip, caching rules
+nginx.conf                  # Listens on 8000, clean URLs, SSI, gzip, caching rules
 ```
 
-Nav, mobile menu, and footer are duplicated in each HTML file (no templating). When modifying shared elements, update **all 10 pages**.
+Nav, mobile menu, and footer are **shared via nginx SSI** (Server Side Includes). Each HTML page uses `<!--#include virtual="/includes/..." -->` directives instead of inline blocks. To modify shared elements, edit the partial in `public/includes/` — changes apply to all pages automatically.
 
 **Navigation (all pages):** Inicio | Producto | Precios | Seguridad | Chile 2026 | Contacto + "Solicitar Demo" CTA
 
@@ -72,6 +76,7 @@ No tests or linting to run. Changes are verified visually at `https://kulvio.cl`
 
 All JS in `public/js/main.js` — single IIFE, no dependencies.
 
+- **Active nav link:** Sets `.active` class on `.nav__link` and `.mobile-menu__link` based on `location.pathname`. Runs at page load (handles SSI-included nav that has no per-page active class).
 - **Scroll reveal:** IntersectionObserver adds `.visible` class to `.reveal` elements. Variants: `.reveal--slide-left`, `.reveal--slide-right`, `.reveal--scale`, `.reveal--blur`. Delays: `.reveal-delay-1` through `.reveal-delay-5`.
 - **Counter animation:** Elements with `data-count="N"` attribute animate from 0 to N on viewport entry.
 - **Nav scroll:** IntersectionObserver on a 20px sentinel element toggles `.scrolled` class on `.nav` (no scroll listener).
@@ -96,4 +101,4 @@ All pages include: canonical URLs, Open Graph tags, Twitter Card tags, and JSON-
 
 ## nginx routing
 
-Clean URLs via `try_files $uri $uri.html $uri/ =404` — `/features` serves `features.html`, `/legal/privacy` serves `legal/privacy.html`. Static assets cached 7 days; HTML pages are no-cache. Custom `404.html` page with proper HTTP 404 status code.
+Clean URLs via `try_files $uri $uri.html $uri/ =404` — `/features` serves `features.html`, `/legal/privacy` serves `legal/privacy.html`. Static assets cached 7 days; HTML pages are no-cache. Custom `404.html` page with proper HTTP 404 status code. **SSI is enabled** (`ssi on;` in the `location /` block) to process `<!--#include virtual="..." -->` directives in HTML files.
