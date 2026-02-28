@@ -1,4 +1,4 @@
-# Kulvio — kulvio.cl
+# Kulvio — kulvio.cl — Served by Coolify on cvs-vm
 User-agent: *
 Allow: /
 
