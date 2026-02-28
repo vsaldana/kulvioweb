@@ -11,10 +11,12 @@ jobs:
       group: deploy-kulvioweb
       cancel-in-progress: false
     steps:
-      - name: Deploy to server
-        uses: appleboy/ssh-action@v1
-        with:
-          host: ${{ secrets.SERVER_HOST }}
-          username: azureuser
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: /home/azureuser/infra/scripts/deploy.sh kulvioweb
+      - name: Trigger deploy webhook
+        run: |
+          response=$(curl -sf -X POST \
+            "${{ secrets.DEPLOY_URL }}/deploy/kulvioweb" \
+            -H "Authorization: Bearer ${{ secrets.DEPLOY_TOKEN }}" \
+            --max-time 300)
+          echo "$response" | python3 -m json.tool
+          exit_code=$(echo "$response" | python3 -c "import json,sys; print(json.load(sys.stdin).get('exit_code',1))")
+          exit $exit_code
