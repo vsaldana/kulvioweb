@@ -2766,3 +2766,228 @@ ul, ol { list-style: none; }
   background: var(--amber);
   box-shadow: 0 0 6px var(--amber);
 }
+
+/* --- Implementation Guide Stepper --- */
+.guide-stepper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 48px;
+}
+
+@media (min-width: 640px) {
+  .guide-stepper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .guide-stepper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.guide-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 24px;
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+
+.guide-step:hover {
+  border-color: var(--teal);
+  box-shadow: var(--shadow-sm);
+}
+
+.guide-step__number {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--teal-muted);
+  color: var(--teal);
+  font-weight: 700;
+  font-size: 0.85rem;
+  border-radius: 50%;
+}
+
+.guide-step__title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.4;
+}
+
+.guide-step__desc {
+  font-size: 0.85rem;
+  color: var(--body-light);
+  margin-top: 4px;
+  line-height: 1.5;
+}
+
+/* Dark variant (for navy sections) */
+.section--navy .guide-step {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.section--navy .guide-step:hover {
+  border-color: var(--teal);
+  background: rgba(255, 255, 255, 0.10);
+}
+
+.section--navy .guide-step__title {
+  color: var(--white);
+}
+
+.section--navy .guide-step__desc {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* --- Feature Badge Strip --- */
+.badge-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.badge-strip__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--teal-muted);
+  color: var(--teal);
+  border-radius: 100px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.badge-strip__item:hover {
+  background: var(--teal);
+  color: var(--white);
+}
+
+.badge-strip__item svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* Dark variant */
+.section--navy .badge-strip__item {
+  background: rgba(0, 119, 238, 0.2);
+  color: var(--teal-glow);
+}
+
+.section--navy .badge-strip__item:hover {
+  background: var(--teal);
+  color: var(--white);
+}
+
+/* --- Highlight Box (for differentiator callouts) --- */
+.highlight-box {
+  background: var(--teal-muted);
+  border: 1px solid rgba(0, 119, 238, 0.2);
+  border-radius: var(--radius-lg);
+  padding: 32px 36px;
+  margin-top: 40px;
+}
+
+.highlight-box__title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.highlight-box__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 640px) {
+  .highlight-box__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.highlight-box__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.95rem;
+  color: var(--ink-secondary);
+  line-height: 1.5;
+}
+
+.highlight-box__item svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: var(--teal);
+  margin-top: 2px;
+}
+
+/* Dark variant */
+.section--navy .highlight-box {
+  background: rgba(0, 119, 238, 0.12);
+  border-color: rgba(0, 119, 238, 0.25);
+}
+
+.section--navy .highlight-box__title {
+  color: var(--white);
+}
+
+.section--navy .highlight-box__item {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* --- Stats Row (for landing page metrics) --- */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+@media (min-width: 768px) {
+  .stats-row {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.stats-row__item {
+  text-align: center;
+}
+
+.stats-row__value {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  color: var(--teal);
+  line-height: 1;
+}
+
+.stats-row__label {
+  font-size: 0.85rem;
+  color: var(--body-light);
+  margin-top: 8px;
+}
+
+.section--navy .stats-row__value {
+  color: var(--teal-glow);
+}
+
+.section--navy .stats-row__label {
+  color: rgba(255, 255, 255, 0.7);
+}
