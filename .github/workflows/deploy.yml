@@ -16,16 +16,42 @@ jobs:
           DEPLOY_URL: ${{ secrets.DEPLOY_URL }}
           DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
         run: |
+          # POST to start deploy (returns immediately with job_id)
           HTTP_CODE=$(curl -s -o /tmp/response.txt -w "%{http_code}" -X POST \
             "${DEPLOY_URL}/deploy/kulvioweb" \
             -H "Authorization: Bearer ${DEPLOY_TOKEN}" \
-            --max-time 300)
+            --max-time 30)
           cat /tmp/response.txt
           echo ""
           echo "HTTP Status: $HTTP_CODE"
-          if [ "$HTTP_CODE" != "200" ]; then
-            echo "Deploy failed with HTTP $HTTP_CODE"
+          if [ "$HTTP_CODE" != "202" ] && [ "$HTTP_CODE" != "200" ]; then
+            echo "Deploy trigger failed with HTTP $HTTP_CODE"
             exit 1
           fi
-          exit_code=$(cat /tmp/response.txt | python3 -c "import json,sys; print(json.load(sys.stdin).get('exit_code',1))")
-          exit $exit_code
+          JOB_ID=$(python3 -c "import json,sys; print(json.load(sys.stdin).get('job_id',''))" < /tmp/response.txt)
+          if [ -z "$JOB_ID" ]; then
+            echo "No job_id in response"
+            exit 1
+          fi
+          echo "Deploy started: job_id=$JOB_ID"
+
+          # Poll for completion (max 5 minutes)
+          for i in $(seq 1 30); do
+            sleep 10
+            POLL_CODE=$(curl -s -o /tmp/poll.txt -w "%{http_code}" \
+              "${DEPLOY_URL}/status/${JOB_ID}" \
+              -H "Authorization: Bearer ${DEPLOY_TOKEN}" \
+              --max-time 15)
+            STATUS=$(python3 -c "import json,sys; print(json.load(sys.stdin).get('status','unknown'))" < /tmp/poll.txt 2>/dev/null || echo "unknown")
+            echo "Poll $i: HTTP $POLL_CODE, status=$STATUS"
+            if [ "$STATUS" = "running" ]; then
+              continue
+            fi
+            # Deploy finished — show result
+            cat /tmp/poll.txt
+            echo ""
+            EXIT_CODE=$(python3 -c "import json,sys; print(json.load(sys.stdin).get('exit_code',1))" < /tmp/poll.txt 2>/dev/null || echo "1")
+            exit $EXIT_CODE
+          done
+          echo "Deploy timed out after 5 minutes"
+          exit 1
