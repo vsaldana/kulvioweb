@@ -9,7 +9,7 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Pull latest code
-        run: cd /mnt/c/GIT/kulvioweb && git pull origin main
+        run: cd /mnt/c/GIT/kulvioweb && git fetch origin main && git reset --hard origin/main
 
       - name: Rebuild and restart
         run: |
