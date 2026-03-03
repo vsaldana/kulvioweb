@@ -15,9 +15,7 @@ jobs:
         run: |
           cd /home/azureuser/cvs/infra
           docker compose build kulvioweb
-          docker compose up -d kulvioweb
+          docker compose up -d --wait kulvioweb
 
       - name: Health check
-        run: |
-          sleep 10
-          curl -f http://127.0.0.1:8000/ || exit 1
+        run: curl -f http://127.0.0.1:8000/ || exit 1
