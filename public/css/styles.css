@@ -2571,13 +2571,13 @@ ul, ol { list-style: none; }
   list-style: decimal;
 }
 
-.legal-content a {
+.legal-content a:not(.btn) {
   color: var(--teal);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
-.legal-content a:hover {
+.legal-content a:not(.btn):hover {
   color: var(--teal-glow);
 }
 
