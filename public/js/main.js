@@ -122,34 +122,45 @@
   // --- Pricing calculator ---
   var calcEl = document.getElementById('pricing-calc');
   if (calcEl) {
-    var PRICING_TIERS = [
-      { rangeMin: 1,   rangeMax: 3,   includedUsers: 3,  basePriceUF: 8,    extraUserPriceUF: 0,    planName: 'Starter' },
-      { rangeMin: 4,   rangeMax: 10,  includedUsers: 3,  basePriceUF: 8,    extraUserPriceUF: 1.0,  planName: 'Growth' },
-      { rangeMin: 11,  rangeMax: 25,  includedUsers: 10, basePriceUF: 20,   extraUserPriceUF: 0.8,  planName: 'Scale' },
-      { rangeMin: 26,  rangeMax: 50,  includedUsers: 25, basePriceUF: 32,   extraUserPriceUF: 0.6,  planName: 'Business' },
-      { rangeMin: 51,  rangeMax: 100, includedUsers: 50, basePriceUF: 47,   extraUserPriceUF: 0.45, planName: 'Business+' },
-      { rangeMin: 101, rangeMax: 300, includedUsers: 100, basePriceUF: 69.5, extraUserPriceUF: 0.3,  planName: 'Enterprise' }
+    // Starter: 8 UF base, 3 incluidos, 1.5 UF/extra
+    // Growth: 20 UF base, 10 incluidos, descuentos progresivos por volumen
+    var STARTER = { basePriceUF: 8, includedUsers: 3, extraUserPriceUF: 1.5 };
+    var GROWTH = { basePriceUF: 20, includedUsers: 10 };
+    var GROWTH_VOLUME = [
+      { upTo: 25,  priceUF: 1.00 },
+      { upTo: 60,  priceUF: 0.85 },
+      { upTo: 150, priceUF: 0.70 },
+      { upTo: 300, priceUF: 0.55 }
     ];
 
     function calculatePriceByUsers(users) {
       users = Math.max(1, Math.min(300, Math.round(users)));
-      var tier = null;
-      for (var i = 0; i < PRICING_TIERS.length; i++) {
-        if (users >= PRICING_TIERS[i].rangeMin && users <= PRICING_TIERS[i].rangeMax) {
-          tier = PRICING_TIERS[i];
-          break;
-        }
+
+      // Starter price
+      var starterPrice = STARTER.basePriceUF + Math.max(0, users - STARTER.includedUsers) * STARTER.extraUserPriceUF;
+
+      // Growth price (progressive volume discounts)
+      var growthPrice = GROWTH.basePriceUF;
+      var remaining = Math.max(0, users - GROWTH.includedUsers);
+      var prev = GROWTH.includedUsers;
+      for (var i = 0; i < GROWTH_VOLUME.length && remaining > 0; i++) {
+        var tierCap = GROWTH_VOLUME[i].upTo - prev;
+        var inTier = Math.min(remaining, tierCap);
+        growthPrice += inTier * GROWTH_VOLUME[i].priceUF;
+        remaining -= inTier;
+        prev = GROWTH_VOLUME[i].upTo;
       }
-      if (!tier) tier = PRICING_TIERS[PRICING_TIERS.length - 1];
-      var extraUsers = Math.max(0, users - tier.includedUsers);
-      var totalUF = tier.basePriceUF + (extraUsers * tier.extraUserPriceUF);
+
+      // Growth becomes cheaper at 14+ users
+      var isGrowth = users >= 14;
+      var totalUF = isGrowth ? growthPrice : starterPrice;
       totalUF = Math.round(totalUF * 10) / 10;
+
       return {
         totalUF: totalUF,
-        planName: tier.planName,
-        range: tier.rangeMin + '–' + tier.rangeMax,
+        planName: isGrowth ? 'Growth' : 'Starter',
         pricePerUserUF: Math.round((totalUF / users) * 100) / 100,
-        isEnterpriseEstimate: users > 100
+        isEnterpriseEstimate: users > 150
       };
     }
 
