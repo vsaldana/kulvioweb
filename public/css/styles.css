@@ -1258,6 +1258,51 @@ ul, ol { list-style: none; }
   color: var(--body-light);
 }
 
+/* Privacy consent & notice */
+.privacy-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 16px;
+  font-size: 0.88rem;
+  color: var(--body);
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.privacy-consent input[type="checkbox"] {
+  margin-top: 3px;
+  flex-shrink: 0;
+  accent-color: var(--teal);
+}
+
+.privacy-consent a {
+  color: var(--teal);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.privacy-consent a:hover {
+  color: var(--teal-glow);
+}
+
+.privacy-notice {
+  font-size: 0.82rem;
+  color: var(--body-light);
+  margin-top: 16px;
+  line-height: 1.6;
+}
+
+.privacy-notice a {
+  color: var(--teal);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.privacy-notice a:hover {
+  color: var(--teal-glow);
+}
+
 /* ============================================
    SPLIT SECTION HEADER
    ============================================ */
