@@ -20,7 +20,6 @@ public/                     # nginx document root
 ├── chile-2026.html         # Regulatory resources (fines, timeline, obligations)
 ├── contact.html            # Contact form + company info
 ├── legal/
-│   ├── privacy.html        # Privacy policy
 │   ├── terms.html          # Terms of service
 │   └── ley-21719.html      # Ley 21.719 summary
 ├── includes/               # SSI partials (included by nginx at serve time)
@@ -101,4 +100,4 @@ All pages include: canonical URLs, Open Graph tags, Twitter Card tags, and JSON-
 
 ## nginx routing
 
-Clean URLs via `try_files $uri $uri.html $uri/ =404` — `/features` serves `features.html`, `/legal/privacy` serves `legal/privacy.html`. Static assets cached 7 days; HTML pages are no-cache. Custom `404.html` page with proper HTTP 404 status code. **SSI is enabled** (`ssi on;` in the `location /` block) to process `<!--#include virtual="..." -->` directives in HTML files.
+Clean URLs via `try_files $uri $uri.html $uri/ =404` — `/features` serves `features.html`, `/legal/terms` serves `legal/terms.html`. Static assets cached 7 days; HTML pages are no-cache. Custom `404.html` page with proper HTTP 404 status code. **SSI is enabled** (`ssi on;` in the `location /` block) to process `<!--#include virtual="..." -->` directives in HTML files. `/legal/privacy` redirects 301 to `https://solutoria.cl/privacidad.php` (central privacy policy).
