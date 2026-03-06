@@ -278,12 +278,12 @@ ul, ol { list-style: none; }
   color: var(--navy);
 }
 
-.nav__cta {
+.btn.nav__cta {
   display: none;
 }
 
 @media (min-width: 768px) {
-  .nav__cta { display: inline-flex; }
+  .btn.nav__cta { display: inline-flex; }
 }
 
 /* Mobile menu button */
@@ -448,6 +448,7 @@ ul, ol { list-style: none; }
 .hero {
   position: relative;
   min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   align-items: center;
   padding-top: var(--nav-height);
@@ -508,12 +509,12 @@ ul, ol { list-style: none; }
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 16px 6px 8px;
+  padding: 8px 18px 8px 12px;
   border-radius: 100px;
-  background: rgba(0, 119, 238, 0.12);
-  border: 1px solid rgba(0, 119, 238, 0.2);
+  background: rgba(0, 119, 238, 0.15);
+  border: 1px solid rgba(0, 119, 238, 0.25);
   color: var(--teal-glow);
-  font-size: 0.8rem;
+  font-size: 0.84rem;
   font-weight: 600;
   letter-spacing: 0.02em;
   margin-bottom: 24px;
@@ -533,8 +534,8 @@ ul, ol { list-style: none; }
 }
 
 .hero__title {
-  font-size: clamp(2.2rem, 5vw, 3.5rem);
-  line-height: 1.1;
+  font-size: clamp(2.5rem, 7vw, 3.5rem);
+  line-height: 1.08;
   color: var(--white);
   margin-bottom: 24px;
 }
@@ -547,11 +548,11 @@ ul, ol { list-style: none; }
 }
 
 .hero__subtitle {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.7);
   max-width: 520px;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
 }
 
 .hero__actions {
@@ -3035,4 +3036,161 @@ ul, ol { list-style: none; }
 
 .section--navy .stats-row__label {
   color: rgba(255, 255, 255, 0.7);
+}
+
+/* ============================================
+   MOBILE EXPERIENCE — WORLD-CLASS REFINEMENTS
+   ============================================ */
+
+/* --- Hero: centered layout with atmospheric shield backdrop --- */
+@media (max-width: 959px) {
+  .hero::before {
+    background:
+      radial-gradient(circle 280px at 50% 35%, rgba(0, 119, 238, 0.18) 0%, transparent 70%),
+      radial-gradient(ellipse 120% 50% at 50% 100%, rgba(0, 119, 238, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse 100% 80% at 50% 0%, rgba(27, 58, 92, 0.6) 0%, transparent 70%);
+  }
+
+  .hero__inner {
+    padding: 32px 0 40px;
+    gap: 0;
+    text-align: center;
+  }
+
+  .hero__content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero__badge {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero__subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero__actions {
+    flex-direction: column;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Shield as atmospheric backdrop behind text */
+  .hero__visual {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+    pointer-events: none;
+    opacity: 0.35;
+  }
+
+  .hero__shield {
+    width: 300px;
+    height: 320px;
+  }
+
+  .hero__float-card {
+    display: none;
+  }
+}
+
+/* --- Tighter vertical rhythm on mobile --- */
+@media (max-width: 767px) {
+  .section {
+    padding: 72px 0;
+  }
+
+  .section__subheading {
+    margin-bottom: 40px;
+  }
+
+  /* Metrics bar: card-style items */
+  .metrics {
+    padding: 40px 0;
+  }
+
+  .metrics__inner {
+    gap: 12px;
+  }
+
+  .metrics__item {
+    background: var(--surface-dim);
+    border-radius: var(--radius);
+    padding: 20px 12px;
+  }
+
+  /* Testimonial: tighter */
+  .testimonial {
+    padding: 72px 0;
+  }
+
+  /* CTA sections: full-width buttons */
+  .cta-banner .btn--lg,
+  .pre-footer .btn--lg {
+    width: 100%;
+  }
+
+  /* Trust badges: compact */
+  .trust-badges {
+    gap: 10px;
+    margin-top: 28px;
+  }
+
+  .trust-badge {
+    padding: 8px 14px;
+    font-size: 0.78rem;
+    gap: 8px;
+  }
+
+  /* Plans teaser: compact cards */
+  .plans-teaser__card {
+    padding: 24px 20px;
+  }
+
+  /* Value cards: tighter padding */
+  .value-card {
+    padding: 28px 24px;
+  }
+}
+
+/* --- Small screens: compact grids --- */
+@media (max-width: 639px) {
+  /* Guide stepper: 2-col for compactness */
+  .guide-stepper {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .guide-step {
+    padding: 14px 12px;
+    gap: 10px;
+  }
+
+  .guide-step__number {
+    width: 28px;
+    height: 28px;
+    font-size: 0.75rem;
+  }
+
+  .guide-step__title {
+    font-size: 0.85rem;
+  }
+
+  /* Urgency cards: compact */
+  .urgency-card {
+    padding: 22px 18px;
+  }
+
+  /* Feature cards: compact */
+  .feature-card {
+    padding: 24px 20px;
+  }
 }
