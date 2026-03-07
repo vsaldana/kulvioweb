@@ -646,6 +646,25 @@ ul, ol { list-style: none; }
   animation-delay: -4s;
 }
 
+.hero__float-card:nth-child(6) {
+  bottom: 2%;
+  left: 20%;
+  animation-delay: -3s;
+}
+
+.hero__float-card--ai {
+  border-color: rgba(5, 150, 105, 0.3);
+  background: rgba(5, 150, 105, 0.1);
+}
+
+.hero__float-card--ai .hero__float-card-label {
+  color: rgba(167, 243, 208, 0.7);
+}
+
+.hero__float-card--ai .hero__float-card-value {
+  color: #6ee7b7;
+}
+
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-12px); }
