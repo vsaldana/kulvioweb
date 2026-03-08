@@ -13,6 +13,7 @@ from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail, Email, To, Content, ReplyTo
 
 app = Flask(__name__)
+app.config["MAX_CONTENT_LENGTH"] = 64 * 1024  # 64 KB
 
 # ---------------------------------------------------------------------------
 # Configuration (all from environment)
@@ -57,7 +58,7 @@ def contact():
 
     if not name:
         return jsonify({"error": "El nombre es obligatorio."}), 422
-    if not email:
+    if not email or "@" not in email:
         return jsonify({"error": "El email es obligatorio."}), 422
     if not turnstile_token:
         return jsonify({"error": "Verificación anti-bot requerida."}), 422
@@ -81,6 +82,7 @@ def contact():
         )
         ts_result = ts_resp.json()
     except Exception:
+        app.logger.exception("Turnstile verification failed")
         return jsonify({"error": "Error al verificar anti-bot."}), 502
 
     if not ts_result.get("success"):
@@ -104,15 +106,17 @@ def contact():
         subject=f"[Kulvio] Nueva solicitud: {interest_label}",
         plain_text_content=Content("text/plain", body_text),
     )
-    mail.reply_to = ReplyTo(email)
+    mail.reply_to = ReplyTo(email, name)
 
     # --- Send via SendGrid -------------------------------------------------
     try:
         sg = SendGridAPIClient(SENDGRID_API_KEY)
         response = sg.send(mail)
         if response.status_code >= 400:
+            app.logger.error("SendGrid returned %s", response.status_code)
             return jsonify({"error": "Error al enviar el mensaje."}), 502
     except Exception:
+        app.logger.exception("SendGrid send failed")
         return jsonify({"error": "Error al enviar el mensaje."}), 502
 
     return jsonify({"success": True})
