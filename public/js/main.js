@@ -122,13 +122,56 @@
   // --- Contact form ---
   const form = document.getElementById('contact-form');
   if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      // In production, this would POST to an API endpoint.
-      // For now, show success message.
-      form.style.display = 'none';
-      const success = document.querySelector('.form-success');
-      if (success) success.classList.add('show');
+      const btn = form.querySelector('button[type="submit"]');
+      const errorEl = document.getElementById('form-error');
+      const btnText = btn.innerHTML;
+
+      // Reset error state
+      if (errorEl) { errorEl.style.display = 'none'; errorEl.textContent = ''; }
+
+      // Get Turnstile token
+      const token = form.querySelector('[name="cf-turnstile-response"]')?.value;
+      if (!token) {
+        if (errorEl) { errorEl.textContent = 'Completa la verificación de seguridad.'; errorEl.style.display = 'block'; }
+        return;
+      }
+
+      // Disable button, show loading
+      btn.disabled = true;
+      btn.innerHTML = 'Enviando…';
+
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: form.querySelector('#name').value,
+            email: form.querySelector('#email').value,
+            company: form.querySelector('#company').value,
+            interest: form.querySelector('#interest').value,
+            message: form.querySelector('#message').value,
+            'cf-turnstile-response': token,
+          }),
+        });
+        const data = await res.json();
+
+        if (data.success) {
+          form.style.display = 'none';
+          const success = document.querySelector('.form-success');
+          if (success) success.classList.add('show');
+        } else {
+          if (errorEl) { errorEl.textContent = data.error || 'Error al enviar. Intenta de nuevo.'; errorEl.style.display = 'block'; }
+          if (window.turnstile) turnstile.reset();
+        }
+      } catch (_) {
+        if (errorEl) { errorEl.textContent = 'Error de conexión. Intenta de nuevo.'; errorEl.style.display = 'block'; }
+        if (window.turnstile) turnstile.reset();
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = btnText;
+      }
     });
   }
 })();

@@ -1323,6 +1323,18 @@ ul, ol { list-style: none; }
   color: var(--teal-glow);
 }
 
+.form-error {
+  display: none;
+  color: var(--red);
+  font-size: 0.88rem;
+  margin-top: 12px;
+  line-height: 1.5;
+}
+
+.cf-turnstile {
+  margin-bottom: 16px;
+}
+
 /* ============================================
    SPLIT SECTION HEADER
    ============================================ */

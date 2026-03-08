@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap">
-  <link rel="stylesheet" href="css/styles.css?v=12">
+  <link rel="stylesheet" href="css/styles.css?v=13">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -37,6 +37,7 @@
     }
   }
   </script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <!--#include virtual="/includes/analytics.html" -->
 </head>
 <body>
@@ -158,10 +159,12 @@
               <input type="checkbox" required>
               He leído y acepto la <a href="https://solutoria.cl/privacidad.php" target="_blank" rel="noopener noreferrer">Política de Privacidad</a>
             </label>
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAChmpJCUtE2oBfBr" data-theme="light"></div>
             <button type="submit" class="btn btn--primary btn--lg btn--block">
               Enviar Mensaje
               <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
             </button>
+            <p class="form-error" id="form-error"></p>
             <p class="privacy-notice">
               Protección de datos personales: Los datos ingresados en este formulario serán utilizados por <strong>SOLUTORIA SpA</strong> para responder su solicitud de información o contacto relacionada con la plataforma Kulvio. Para más información revise nuestra <a href="https://solutoria.cl/privacidad.php" target="_blank" rel="noopener noreferrer">Política de Privacidad</a>.
             </p>
@@ -187,6 +190,6 @@
   <!-- ======== FOOTER ======== -->
   <!--#include virtual="/includes/footer.html" -->
 
-  <script src="js/main.js?v=11"></script>
+  <script src="js/main.js?v=12"></script>
 </body>
 </html>
