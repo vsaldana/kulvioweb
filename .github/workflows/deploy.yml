@@ -11,11 +11,52 @@ jobs:
       - name: Pull latest code
         run: cd /mnt/c/GIT/kulvioweb && git fetch origin main && git reset --hard origin/main
 
-      - name: Rebuild and restart
+      - name: Deploy with rollback
         run: |
+          set -e
           cd /home/azureuser/cvs/infra
-          docker compose build kulvioweb
-          docker compose up -d --wait kulvioweb
+          SERVICE="kulvioweb"
+          HEALTH_URL="http://127.0.0.1:8000/"
+          COMMIT_MSG=$(cd /mnt/c/GIT/kulvioweb && git log -1 --pretty=%s)
 
-      - name: Health check
-        run: curl -f http://127.0.0.1:8000/ || exit 1
+          # Load Pushover config
+          if [ -f /mnt/c/SERVER/config/pushover.conf ]; then
+            export $(grep -v '^#' /mnt/c/SERVER/config/pushover.conf | xargs)
+          fi
+
+          notify() {
+            local msg="$1" priority="${2:-0}"
+            if [ -n "$PUSHOVER_TOKEN" ] && [ -n "$PUSHOVER_USER" ]; then
+              curl -sf --max-time 10 \
+                --form-string "token=$PUSHOVER_TOKEN" \
+                --form-string "user=$PUSHOVER_USER" \
+                --form-string "message=$msg" \
+                --form-string "priority=$priority" \
+                https://api.pushover.net/1/messages.json > /dev/null 2>&1 || true
+            fi
+          }
+
+          # Tag current image as rollback backup
+          docker tag cvs-${SERVICE}:latest cvs-${SERVICE}:rollback 2>/dev/null || true
+
+          # Build new image
+          docker compose build ${SERVICE}
+
+          # Deploy new container
+          docker compose up -d ${SERVICE}
+
+          # Wait for startup then health check
+          sleep 30
+          if curl -sf --max-time 10 "$HEALTH_URL" > /dev/null; then
+            echo "Health check passed"
+            docker rmi cvs-${SERVICE}:rollback 2>/dev/null || true
+            notify "Deploy OK: ${SERVICE} — ${COMMIT_MSG}"
+          else
+            echo "Health check FAILED — rolling back"
+            docker compose stop ${SERVICE}
+            docker tag cvs-${SERVICE}:rollback cvs-${SERVICE}:latest
+            docker compose up -d ${SERVICE}
+            docker rmi cvs-${SERVICE}:rollback 2>/dev/null || true
+            notify "DEPLOY FAILED + ROLLBACK: ${SERVICE} — ${COMMIT_MSG}" "1"
+            exit 1
+          fi
