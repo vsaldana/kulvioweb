@@ -1509,78 +1509,6 @@ ul, ol { list-style: none; }
 }
 
 /* ============================================
-   TESTIMONIAL
-   ============================================ */
-.testimonial {
-  padding: 100px 0;
-  background: var(--navy-deep);
-}
-
-@media (min-width: 768px) {
-  .testimonial { padding: 120px 0; }
-}
-
-.testimonial__inner {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 48px;
-  align-items: center;
-}
-
-@media (min-width: 768px) {
-  .testimonial__inner {
-    grid-template-columns: 3fr 2fr;
-    gap: 64px;
-  }
-}
-
-.testimonial__quote {
-  position: relative;
-  padding-left: 32px;
-  border-left: 3px solid var(--teal);
-}
-
-.testimonial__text {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.85);
-  margin-bottom: 24px;
-}
-
-.testimonial__author {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--teal-glow);
-}
-
-.testimonial__role {
-  font-size: 0.82rem;
-  color: rgba(255, 255, 255, 0.4);
-  margin-top: 4px;
-}
-
-.testimonial__decoration {
-  display: none;
-  position: relative;
-  justify-content: center;
-  align-items: center;
-}
-
-@media (min-width: 768px) {
-  .testimonial__decoration { display: flex; }
-}
-
-.testimonial__mark {
-  font-family: var(--font-display);
-  font-size: 16rem;
-  line-height: 1;
-  color: rgba(0, 119, 238, 0.08);
-  user-select: none;
-}
-
-/* ============================================
    TRUST BADGES
    ============================================ */
 .trust-badges {
@@ -3068,11 +2996,6 @@ ul, ol { list-style: none; }
     background: var(--surface-dim);
     border-radius: var(--radius);
     padding: 20px 12px;
-  }
-
-  /* Testimonial: tighter */
-  .testimonial {
-    padding: 72px 0;
   }
 
   /* CTA sections: full-width buttons */
